@@ -21,7 +21,7 @@ class SoapServiceController extends AbstractController {
                 $response = new Response( '', Response::HTTP_BAD_REQUEST, [ 'HTTP/1.1 400 Client Error' ] );
                 return $response;
             }
-            $content = file_get_contents(dirname(__DIR__)."/Schemas/inlined.wsdl");
+            $content = file_get_contents(dirname(__DIR__)."/Schemas/index.wsdl");
             $response = new Response( $content, Response::HTTP_OK, [ 'Content-Type' => 'application/wsdl+xml' ] );
             return $response;
         }
@@ -52,4 +52,24 @@ class SoapServiceController extends AbstractController {
 
         return $response;
     }
+
+    /**
+     * @Route("/soap/service/Schemas/OTA2010A/{schema}.xsd", name="soap_service_schemas_ota_xsd")
+     * @Route("/soap/service/Schemas/wss/{schema}.xsd", name="soap_service_schemas_wss_xsd")
+     */
+    public function otaconnectServiceXsd(Request $request) {
+
+        $schema = "OTA2010A/".$request->get('schema').".xsd";
+        if( !file_exists(dirname(__DIR__)."/Schemas/".$schema) ) { $schema = "wss/".$request->get('schema').".xsd"; }
+
+        if( !file_exists(dirname(__DIR__)."/Schemas/".$schema) ) {
+            $response = new Response( '', Response::HTTP_BAD_REQUEST, [ 'HTTP/1.1 400 Client Error' ] );
+            return $response;
+        }
+
+        $content = file_get_contents( __DIR__."/../../../OtaInterface/Otaconnect/Schemas/".$schema );
+        $response = new Response( $content, Response::HTTP_OK, [ 'Content-Type' => 'text/xml' ] );
+        return $response;
+    }
+
 }
