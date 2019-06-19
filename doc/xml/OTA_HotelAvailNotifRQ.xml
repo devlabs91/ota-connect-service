@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SOAP-ENV:Envelope
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header
+            xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+        <wsse:Security soap:mustUnderstand="1"
+                       xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+                       xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+            <wsse:UsernameToken>
+                <wsse:Username>username</wsse:Username>
+                <wsse:Password
+                        Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">password</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body
+            xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+        <OTA_HotelAvailNotifRQ
+                xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.0"
+                TimeStamp="2019-06-18T16:39:28+0700"
+                EchoToken="2b2257dd-1e31-41b8-90aa-1a4bef73c723"
+                AvailRatesOnly="true">
+            <AvailStatusMessages HotelCode="{HOTEL_CODE}">
+                <AvailStatusMessage BookingLimit="0">
+                    <StatusApplicationControl InvTypeCode="{ROOM_CODE}" RatePlanCode="{RATE_CODE}" Start="2019-05-27" End="2020-05-25"></StatusApplicationControl>
+                    <RestrictionStatus Status="Open" ></RestrictionStatus>
+                </AvailStatusMessage>
+                <AvailStatusMessage>
+                    <StatusApplicationControl InvTypeCode="{ROOM_CODE}" RatePlanCode="{RATE_CODE}" Start="2019-05-27" End="2020-05-25"></StatusApplicationControl>
+                    <LengthsOfStay>
+                        <LengthOfStay MinMaxMessageType="SetMinLOS" Time="1"></LengthOfStay>
+                    </LengthsOfStay>
+                </AvailStatusMessage>
+                <AvailStatusMessage>
+                    <StatusApplicationControl InvTypeCode="{ROOM_CODE}" RatePlanCode="{RATE_CODE}" Start="2019-05-27" End="2020-05-25"></StatusApplicationControl>
+                    <LengthsOfStay>
+                        <LengthOfStay MinMaxMessageType="RemoveMaxLOS"></LengthOfStay>
+                    </LengthsOfStay>
+                </AvailStatusMessage>
+                <AvailStatusMessage BookingLimit="0">
+                    <StatusApplicationControl InvTypeCode="{ROOM_CODE}" RatePlanCode="{RATE_CODE}" Start="2020-05-26" End="2020-05-26"></StatusApplicationControl>
+                    <RestrictionStatus Status="Open" ></RestrictionStatus>
+                </AvailStatusMessage>
+                <AvailStatusMessage>
+                    <StatusApplicationControl InvTypeCode="{ROOM_CODE}" RatePlanCode="{RATE_CODE}" Start="2020-05-26" End="2020-05-26"></StatusApplicationControl>
+                    <LengthsOfStay>
+                        <LengthOfStay MinMaxMessageType="SetMinLOS" Time="1"></LengthOfStay>
+                    </LengthsOfStay>
+                </AvailStatusMessage>
+                <AvailStatusMessage>
+                    <StatusApplicationControl InvTypeCode="{ROOM_CODE}" RatePlanCode="{RATE_CODE}" Start="2020-05-26" End="2020-05-26"></StatusApplicationControl>
+                    <LengthsOfStay>
+                        <LengthOfStay MinMaxMessageType="RemoveMaxLOS"></LengthOfStay>
+                    </LengthsOfStay>
+                </AvailStatusMessage>
+            </AvailStatusMessages>
+        </OTA_HotelAvailNotifRQ>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
