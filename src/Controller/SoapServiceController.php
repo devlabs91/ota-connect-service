@@ -21,7 +21,7 @@ class SoapServiceController extends AbstractController {
                 $response = new Response( '', Response::HTTP_BAD_REQUEST, [ 'HTTP/1.1 400 Client Error' ] );
                 return $response;
             }
-            $content = file_get_contents(dirname(__DIR__)."/Schemas/index.wsdl");
+            $content = file_get_contents(dirname(__DIR__)."/Schemas/inlined.wsdl");
             $response = new Response( $content, Response::HTTP_OK, [ 'Content-Type' => 'application/wsdl+xml' ] );
             return $response;
         }
