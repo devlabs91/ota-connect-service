@@ -67,7 +67,7 @@ class SoapServiceController extends AbstractController {
             return $response;
         }
 
-        $content = file_get_contents( __DIR__."/../../../OtaInterface/Otaconnect/Schemas/".$schema );
+        $content = file_get_contents( dirname(__DIR__)."/Schemas/".$schema );
         $response = new Response( $content, Response::HTTP_OK, [ 'Content-Type' => 'text/xml' ] );
         return $response;
     }
