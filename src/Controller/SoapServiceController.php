@@ -54,8 +54,8 @@ class SoapServiceController extends AbstractController {
     }
 
     /**
-     * @Route("/soap/service/Schemas/OTA2010A/{schema}.xsd", name="soap_service_schemas_ota_xsd")
-     * @Route("/soap/service/Schemas/wss/{schema}.xsd", name="soap_service_schemas_wss_xsd")
+     * @Route("/soap/Schemas/OTA2010A/{schema}.xsd", name="soap_service_schemas_ota_xsd")
+     * @Route("/soap/Schemas/wss/{schema}.xsd", name="soap_service_schemas_wss_xsd")
      */
     public function otaconnectServiceXsd(Request $request) {
 
